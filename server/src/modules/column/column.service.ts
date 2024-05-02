@@ -14,10 +14,29 @@ export class ColumnService {
     });
   }
 
+  async getColumn(id: string) {
+    const column = await this.prisma.column.findUnique({
+      where: {
+        id,
+      },
+    });
+    return column;
+  }
+
   async createColumn(data: ColumnDTO) {
-    const task = await this.prisma.column.create({
+    const column = await this.prisma.column.create({
       data,
     });
-    return task;
+    return column;
+  }
+
+  async updateColumn(id: string, data: ColumnDTO) {
+    const column = await this.prisma.column.update({
+      where: {
+        id,
+      },
+      data,
+    });
+    return column;
   }
 }
