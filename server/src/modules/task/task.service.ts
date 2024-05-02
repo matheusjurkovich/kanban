@@ -25,9 +25,22 @@ export class TaskService {
   }
 
   async createTask(data: TaskDTO) {
+    if (!data.columnId) {
+      throw new Error('columnId is required');
+    }
+
     const task = await this.prisma.task.create({
-      data,
+      data: {
+        title: data.title,
+        description: data.description,
+        column: {
+          connect: {
+            id: data.columnId,
+          },
+        },
+      },
     });
+
     return task;
   }
 
