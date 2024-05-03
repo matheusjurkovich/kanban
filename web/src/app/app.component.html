@@ -2,29 +2,22 @@
   <a href="/"><h1>Kanban</h1></a>
 </header>
 <main>
-  <div id="add-column"><button class="btn-add" type="button">Adicionar Coluna</button></div>
+  <div id="add-column">
+    <button class="btn-add" type="button">
+      <mat-icon>add_circle</mat-icon>Adicionar Coluna
+    </button>
+  </div>
   <div id="board">
-    <app-column [title]="columnTitle">
+    <app-column [title]="'Pending'">
       <app-card [title]="cardTitle" [description]="cardDescription"></app-card>
       <app-card [title]="cardTitle" [description]="cardDescription"></app-card>
       <app-card [title]="cardTitle" [description]="cardDescription"></app-card>
     </app-column>
-    <app-column [title]="columnTitle">
+    <app-column [title]="'On Going'">
       <app-card [title]="cardTitle" [description]="cardDescription"></app-card>
     </app-column>
-    <app-column [title]="columnTitle">
+    <app-column [title]="'Completed'">
       <app-card [title]="cardTitle" [description]="cardDescription"></app-card>
-    </app-column>
-    <app-column [title]="columnTitle">
-      <app-card [title]="cardTitle" [description]="cardDescription"></app-card>
-    </app-column>
-    <app-column [title]="columnTitle">
-      <app-card [title]="cardTitle" [description]="cardDescription"></app-card>
-    </app-column>
-    <app-column [title]="columnTitle">
-      <app-card [title]="cardTitle" [description]="cardDescription"></app-card>
-    </app-column>
-    <app-column [title]="columnTitle">
       <app-card [title]="cardTitle" [description]="cardDescription"></app-card>
     </app-column>
   </div>
