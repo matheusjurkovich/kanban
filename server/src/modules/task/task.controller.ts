@@ -15,13 +15,13 @@ export class TaskController {
   constructor(private readonly taskService: TaskService) {}
 
   @Get()
-  async findAll() {
-    return this.taskService.findAll();
+  async findAllTasks() {
+    return this.taskService.findAllTasks();
   }
 
   @Get(':id')
-  async getTask(@Param('id') id: string) {
-    return this.taskService.getTask(id);
+  async getTaskById(@Param('id') id: string) {
+    return this.taskService.getTaskById(id);
   }
 
   @Post()
@@ -35,7 +35,7 @@ export class TaskController {
   }
 
   @Delete(':id')
-  async delete(@Param('id') id: string) {
+  async deleteTask(@Param('id') id: string) {
     return this.taskService.deleteTask(id);
   }
 }

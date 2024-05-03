@@ -6,7 +6,7 @@ import { ColumnDTO } from './column.dto';
 export class ColumnService {
   constructor(private prisma: PrismaService) {}
 
-  async findAll() {
+  async findAllColumns() {
     return await this.prisma.column.findMany({
       include: {
         tasks: true,
@@ -14,13 +14,22 @@ export class ColumnService {
     });
   }
 
-  async getColumn(id: string) {
-    const column = await this.prisma.column.findUnique({
+  async getColumnById(id: string) {
+    const columnExists = await this.prisma.column.findUnique({
       where: {
         id,
       },
     });
-    return column;
+
+    if (!columnExists) {
+      throw new Error('column not exixsts!');
+    }
+
+    return await this.prisma.column.findUnique({
+      where: {
+        id,
+      },
+    });
   }
 
   async createColumn(data: ColumnDTO) {
@@ -31,12 +40,38 @@ export class ColumnService {
   }
 
   async updateColumn(id: string, data: ColumnDTO) {
-    const column = await this.prisma.column.update({
+    const columnExists = await this.prisma.column.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!columnExists) {
+      throw new Error('column not exixsts!');
+    }
+    return await this.prisma.column.update({
       where: {
         id,
       },
       data,
     });
-    return column;
+  }
+
+  async deleteColumn(id: string) {
+    const columnExists = await this.prisma.column.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!columnExists) {
+      throw new Error('column not exixsts!');
+    }
+
+    return await this.prisma.column.delete({
+      where: {
+        id,
+      },
+    });
   }
 }

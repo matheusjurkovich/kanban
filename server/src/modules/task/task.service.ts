@@ -6,11 +6,11 @@ import { PrismaService } from 'src/database/PrismaService';
 export class TaskService {
   constructor(private prisma: PrismaService) {}
 
-  async findAll() {
+  async findAllTasks() {
     return await this.prisma.task.findMany();
   }
 
-  async getTask(id: string) {
+  async getTaskById(id: string) {
     const taskExists = await this.prisma.task.findUnique({
       where: {
         id,
