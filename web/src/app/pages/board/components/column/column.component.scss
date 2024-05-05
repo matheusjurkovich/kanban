@@ -1,9 +1,14 @@
 .column {
-  background-color: #d1d1d1;
+  background-color: #f6f6f6;
   padding: 1rem;
   border-radius: 0.5rem;
   min-width: 20rem;
   h2 {
     margin-bottom: 1rem;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
   }
 }

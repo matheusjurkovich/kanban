@@ -1,8 +1,10 @@
-<div class="column">
-  <div class="column-header">
-    <h2>{{ title }}</h2>
-  </div>
-  <div class="column-body">
-    <ng-content></ng-content>
-  </div>
-</div>
+<section aria-labelledby="column-header" class="column">
+  <header id="column-header" class="column-header">
+    <h2>title</h2>
+  </header>
+  <ul class="column-body" role="list">
+    <li  role="listitem">
+      <app-card [title]="'teste'" [description]="'teste'" ></app-card>
+    </li>
+  </ul>
+</section>

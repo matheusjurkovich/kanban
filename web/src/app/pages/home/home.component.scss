@@ -26,4 +26,10 @@ main {
       background-color: #555;
     }
   }
+  #boards {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+  }
 }
