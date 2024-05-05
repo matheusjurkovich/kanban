@@ -33,13 +33,26 @@ export class ColumnService {
   }
 
   async createColumn(data: ColumnDTO) {
+    if (!data.boardId) {
+      throw new Error('columnId is required');
+    }
+
     const column = await this.prisma.column.create({
-      data,
+      data: {
+        title: data.title,
+        Board: {
+          connect: {
+            id: data.boardId,
+          },
+        },
+      },
     });
+
     return column;
   }
 
   async updateColumn(id: string, data: ColumnDTO) {
+    console.log(id, data);
     const columnExists = await this.prisma.column.findUnique({
       where: {
         id,
@@ -53,7 +66,14 @@ export class ColumnService {
       where: {
         id,
       },
-      data,
+      data: {
+        title: data.title,
+        Board: {
+          connect: {
+            id: data.boardId,
+          },
+        },
+      },
     });
   }
 

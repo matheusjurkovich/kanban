@@ -19,9 +19,9 @@ model Task {
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  columnId    String
 
-  column   Column @relation(fields: [columnId], references: [id])
-  columnId String
+  column Column @relation(fields: [columnId], references: [id])
 
   @@map("tasks")
 }
@@ -31,4 +31,16 @@ model Column {
   title     String
   createdAt DateTime @default(now())
   tasks     Task[]
+  boardId   String?
+
+  Board Board? @relation(fields: [boardId], references: [id])
+
+  @@map("columns")
+}
+
+model Board {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+  columns   Column[]
 }

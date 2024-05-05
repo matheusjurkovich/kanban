@@ -1,0 +1,29 @@
+main {
+  padding-inline: 10rem;
+  padding-block: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  #add-board {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    .btn-add {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      padding-block: 0.5rem;
+      padding-inline: 0.8rem;
+      border-radius: 0.5rem;
+      border: none;
+      background-color: #333;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn-add:hover {
+      background-color: #555;
+    }
+  }
+}

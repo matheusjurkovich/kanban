@@ -20,7 +20,7 @@ export class ColumnController {
   }
 
   @Get(':id')
-  async getColumnById(@Param() id: string) {
+  async getColumnById(@Param('id') id: string) {
     return this.columnService.getColumnById(id);
   }
 
@@ -32,7 +32,7 @@ export class ColumnController {
   }
 
   @Patch(':id')
-  async updateColumn(@Param() id: string, @Body() data: ColumnDTO) {
+  async updateColumn(@Param('id') id: string, @Body() data: ColumnDTO) {
     const column = await this.columnService.updateColumn(id, data);
 
     return column;
