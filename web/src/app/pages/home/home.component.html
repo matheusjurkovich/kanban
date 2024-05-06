@@ -5,7 +5,8 @@
     </button>
   </div>
   <div id="boards">
-    <app-card-board></app-card-board>
-    <app-card-board></app-card-board>
+    <div *ngFor="let board of boards">
+      <app-card-board [routerLink]="['/board', board.id]" [title]="board.title"></app-card-board>
+    </div>
   </div>
 </main>

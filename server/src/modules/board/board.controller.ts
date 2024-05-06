@@ -20,7 +20,7 @@ export class BoardController {
   }
 
   @Get(':id')
-  async getBoardById(@Param() id: string) {
+  async getBoardById(@Param('id') id: string) {
     return this.boardService.getBoardById(id);
   }
 

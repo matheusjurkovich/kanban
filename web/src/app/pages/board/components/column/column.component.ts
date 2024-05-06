@@ -1,22 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-interface Column {
-  id: string;
-  title: string;
-  createdAt: string;
-  boardId: string;
-  tasks: Task[];
-}
-
-interface Task {
-  id: string;
-  title: string;
-  description: string;
-  createdAt: string;
-  updatedAt: string;
-  columnId: string;
-}
+import { Component, Input, OnInit } from '@angular/core';
+import { ApiServiceService, Task } from 'src/app/core/api/api-service.service';
 
 @Component({
   selector: 'app-column',
@@ -24,19 +7,16 @@ interface Task {
   styleUrls: ['./column.component.scss'],
 })
 export class ColumnComponent implements OnInit {
-  columns: Column[] = [];
+  tasks: Task[] = [];
+  @Input({ required: true }) title: string = '';
+  @Input({ required: true }) columnId: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private apiService: ApiServiceService) {}
 
-  ngOnInit(): void {
-    this.getColumns();
-  }
-
-  getColumns(): void {
-    const apiUrl = 'http://localhost:3333/column'; // Substitua pela URL real da sua API
-    this.http.get<Column[]>(apiUrl).subscribe(
+  ngOnInit() {
+    this.apiService.getTasksByColumnId(this.columnId).subscribe(
       (data) => {
-        this.columns = data;
+        this.tasks = data.tasks;
       },
       (error) => {
         console.error('Erro ao buscar colunas:', error);

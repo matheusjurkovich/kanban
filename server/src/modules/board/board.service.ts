@@ -29,6 +29,9 @@ export class BoardService {
       where: {
         id,
       },
+      include: {
+        columns: true,
+      },
     });
   }
 

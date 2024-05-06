@@ -1,10 +1,13 @@
 <section aria-labelledby="column-header" class="column">
   <header id="column-header" class="column-header">
-    <h2>title</h2>
+    <h2>{{ title }}</h2>
   </header>
   <ul class="column-body" role="list">
-    <li  role="listitem">
-      <app-card [title]="'teste'" [description]="'teste'" ></app-card>
+    <li *ngFor="let task of tasks">
+      <app-card
+        [title]="task.title"
+        [description]="task.description"
+      ></app-card>
     </li>
   </ul>
 </section>

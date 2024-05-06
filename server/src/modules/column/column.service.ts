@@ -29,6 +29,9 @@ export class ColumnService {
       where: {
         id,
       },
+      include: {
+        tasks: true,
+      },
     });
   }
 
@@ -66,14 +69,7 @@ export class ColumnService {
       where: {
         id,
       },
-      data: {
-        title: data.title,
-        Board: {
-          connect: {
-            id: data.boardId,
-          },
-        },
-      },
+      data,
     });
   }
 
