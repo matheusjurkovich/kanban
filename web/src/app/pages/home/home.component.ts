@@ -15,7 +15,6 @@ export class HomeComponent {
     this.apiService.getBoards().subscribe(
       (data) => {
         this.boards = data;
-        console.log('Boards:', this.boards);
       },
       (error) => {
         console.error('Erro ao buscar colunas:', error);

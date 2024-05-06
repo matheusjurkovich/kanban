@@ -3,6 +3,9 @@ main {
   padding-block: 1rem;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 
   #add-board {
     display: flex;
@@ -31,5 +34,16 @@ main {
     gap: 1rem;
     flex-wrap: wrap;
     width: 100%;
+    div {
+      display: flex;
+      gap: 0.5rem;
+    }
   }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding-inline: 1rem;
+  }
+  
 }

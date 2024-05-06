@@ -1,12 +1,23 @@
 <main>
-  <div id="add-column">
-    <button class="btn-add" type="button">
-      <mat-icon>add_circle</mat-icon>Adicionar Coluna
+  <div id="panel">
+    <button class="btn-back" type="button" (click)="voltarPagina()">
+      <mat-icon>arrow_back</mat-icon>
     </button>
+    <div class="btn-wrapper">
+      <button class="btn-edit" type="button">
+        <mat-icon>edit</mat-icon>Editar Quadro
+      </button>
+      <button class="btn-add" type="button">
+        <mat-icon>add_circle</mat-icon>Adicionar Coluna
+      </button>
+    </div>
   </div>
-  <div id="board">
+  <div id="board" *ngIf="columns.length > 0; else emptyMessage">
     <div *ngFor="let column of columns">
       <app-column [title]="column.title" [columnId]="column.id"></app-column>
     </div>
   </div>
+  <ng-template class="emptyMessage" #emptyMessage>
+    <p>Nenhuma coluna cadastrada...</p>
+  </ng-template>
 </main>

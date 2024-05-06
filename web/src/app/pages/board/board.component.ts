@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
@@ -17,17 +18,21 @@ export class BoardComponent implements OnInit {
 
   constructor(
     private apiService: ApiServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) {}
+
+  voltarPagina() {
+    this.location.back();
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.boardId = params['id']; // Capture o parâmetro 'id'
+      this.boardId = params['id'];
 
       this.apiService.getColumnsByBoardId(this.boardId).subscribe(
         (data) => {
           this.columns = data.columns;
-          console.log(data);
         },
         (error) => {
           console.error('Erro ao buscar colunas:', error);

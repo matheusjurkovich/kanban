@@ -5,8 +5,17 @@
     </button>
   </div>
   <div id="boards">
-    <div *ngFor="let board of boards">
-      <app-card-board [routerLink]="['/board', board.id]" [title]="board.title"></app-card-board>
+    <div *ngIf="boards.length > 0; else emptyMessage">
+      <div *ngFor="let board of boards">
+        <app-card-board
+          [routerLink]="['/board', board.id]"
+          [title]="board.title"
+        ></app-card-board>
+      </div>
     </div>
+
+    <ng-template class="emptyMessage" #emptyMessage>
+      <p>Nenhum quadro cadastrado...</p>
+    </ng-template>
   </div>
 </main>

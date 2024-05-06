@@ -1,8 +1,14 @@
 <section aria-labelledby="column-header" class="column">
-  <header id="column-header" class="column-header">
+  <header class="column-header" class="column-header">
     <h2>{{ title }}</h2>
+    <div id="add-task">
+      <button class="btn-add" type="button">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+    </div>
   </header>
-  <ul class="column-body" role="list">
+
+  <ul class="column-body" role="list" *ngIf="tasks.length > 0; else emptyMessage">
     <li *ngFor="let task of tasks">
       <app-card
         [title]="task.title"
@@ -10,4 +16,7 @@
       ></app-card>
     </li>
   </ul>
+  <ng-template class="emptyMessage" #emptyMessage>
+    <p>Nenhuma task cadastrada...</p>
+  </ng-template>
 </section>
