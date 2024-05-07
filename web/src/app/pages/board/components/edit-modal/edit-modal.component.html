@@ -10,10 +10,10 @@
       [(ngModel)]="boardName"
       value=""
     />
-    <button mat-flat-button matSuffix color="primary" (click)="updateBoard()">
+    <button mat-icon-button matSuffix color="primary" (click)="updateBoard()">
       <mat-icon>save</mat-icon>
     </button>
-    <button mat-flat-button color="warn" matSuffix (click)="deleteBoard()">
+    <button mat-icon-button color="warn" matSuffix (click)="deleteBoard()">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-form-field>
@@ -31,7 +31,7 @@
         value=""
       />
       <button
-        mat-flat-button
+        mat-icon-button
         color="primary"
         matSuffix
         (click)="updateColumn(column)"
@@ -39,7 +39,7 @@
         <mat-icon>save</mat-icon>
       </button>
       <button
-        mat-flat-button
+        mat-icon-button
         color="warn"
         matSuffix
         (click)="deleteColumn(column.id)"

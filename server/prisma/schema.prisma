@@ -21,7 +21,7 @@ model Task {
   updatedAt   DateTime @updatedAt
   columnId    String
 
-  column Column @relation(fields: [columnId], references: [id])
+  column Column @relation(fields: [columnId], references: [id], onDelete: Cascade)
 
   @@map("tasks")
 }
@@ -33,7 +33,7 @@ model Column {
   tasks     Task[]
   boardId   String?
 
-  Board Board? @relation(fields: [boardId], references: [id])
+  Board Board? @relation(fields: [boardId], references: [id], onDelete: Cascade)
 
   @@map("columns")
 }
