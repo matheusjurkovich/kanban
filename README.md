@@ -41,7 +41,8 @@ O backend foi construído usando **NestJS** e **Prisma** para gerenciar as opera
 - Docker (opcional, para banco de dados)
 - .env
   ```bash
-  DATABASE_URL="postgresql://docker:docker@localhost:5432/kanban?schema=public"
+  DATABASE_URL="postgresql://docker:docker@localhost:5432/kanban?schema=public" //dev
+  DATABASE_URL="postgresql://postgres:nfzfByUVIEGLiLHnKaceXNmVvWiDKhjA@monorail.proxy.rlwy.net:12348/railway" //prod
   ```
 ### Instalação
 
@@ -61,4 +62,4 @@ Para executar o backend localmente:
 npm run start:dev
 ```
 
-A API estará disponível em `http://localhost:3333`.
+A API estará disponível em `http://localhost:3000`.
