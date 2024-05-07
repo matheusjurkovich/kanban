@@ -6,8 +6,8 @@
       </button>
     </mat-dialog-actions>
   </div>
-  <div id="boards">
-    <div *ngIf="boards.length > 0; else emptyMessage">
+  <div >
+    <div id="boards" *ngIf="boards.length > 0; else emptyMessage">
       <div *ngFor="let board of boards">
         <app-card-board
           [routerLink]="['/board', board.id]"

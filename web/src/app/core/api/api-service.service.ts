@@ -86,4 +86,25 @@ export class ApiServiceService {
       taskData
     );
   }
+
+  updateColumn(columnData: { id: string; title?: string }): Observable<Column> {
+    return this.http.patch<Column>(
+      this.apiUrl + '/column/' + columnData.id,
+      columnData
+    );
+  }
+
+  updateBoard(boardData: { id: string; title?: string }): Observable<Board> {
+    return this.http.patch<Board>(
+      this.apiUrl + '/board/' + boardData.id,
+      boardData
+    );
+  }
+
+  deleteBoard(boardId: string): Observable<Board> {
+    return this.http.delete<Board>(this.apiUrl + '/board/' + boardId);
+  }
+  deleteColumn(columnId: string): Observable<Column> {
+    return this.http.delete<Column>(this.apiUrl + '/column/' + columnId);
+  }
 }

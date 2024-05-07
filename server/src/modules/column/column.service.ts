@@ -55,7 +55,6 @@ export class ColumnService {
   }
 
   async updateColumn(id: string, data: ColumnDTO) {
-    console.log(id, data);
     const columnExists = await this.prisma.column.findUnique({
       where: {
         id,

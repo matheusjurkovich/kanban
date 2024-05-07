@@ -4,11 +4,12 @@
       <mat-icon>arrow_back</mat-icon>
     </button>
     <div class="btn-wrapper">
-      <button class="btn-edit" type="button">
+
+      <button class="btn-edit" type="button" (click)="openEditDialog()">
         <mat-icon>edit</mat-icon>Editar Quadro
       </button>
 
-      <button class="btn-add" type="button" (click)="openDialog()">
+      <button class="btn-add" type="button" (click)="openAddColumnDialog()">
         <mat-icon>add_circle</mat-icon>Adicionar Coluna
       </button>
     </div>

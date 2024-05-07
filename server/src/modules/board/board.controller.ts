@@ -32,7 +32,7 @@ export class BoardController {
   }
 
   @Patch(':id')
-  async updateBoard(@Param() id: string, @Body() data: ColumnDTO) {
+  async updateBoard(@Param('id') id: string, @Body() data: ColumnDTO) {
     const column = await this.boardService.updateBoard(id, data);
 
     return column;

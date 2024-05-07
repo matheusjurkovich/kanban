@@ -22,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { ColumnModalComponent } from './pages/board/components/column-modal/column-modal.component';
 import { TaskModalComponent } from './pages/board/components/column/task-modal/task-modal.component';
+import { EditModalComponent } from './pages/board/components/edit-modal/edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TaskModalComponent } from './pages/board/components/column/task-modal/t
     BoardModalComponent,
     ColumnModalComponent,
     TaskModalComponent,
+    EditModalComponent,
   ],
   imports: [
     BrowserModule,

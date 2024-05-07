@@ -37,15 +37,6 @@ export class BoardService {
   }
 
   async updateBoard(id: string, data: BoardDTO) {
-    const boardExists = await this.prisma.board.findUnique({
-      where: {
-        id,
-      },
-    });
-
-    if (!boardExists) {
-      throw new Error('board not exixsts!');
-    }
     return await this.prisma.board.update({
       where: {
         id,

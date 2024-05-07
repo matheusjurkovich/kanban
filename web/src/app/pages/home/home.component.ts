@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ApiServiceService, Board } from 'src/app/core/api/api-service.service';
 import { BoardModalComponent } from './components/board-modal/board-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { HomeService } from './home.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,8 @@ export class HomeComponent {
 
   constructor(
     private apiService: ApiServiceService,
-    private MatDialog: MatDialog
+    private MatDialog: MatDialog,
+    private HomeService: HomeService
   ) {}
 
   openDialog() {
@@ -27,13 +30,11 @@ export class HomeComponent {
   }
 
   ngOnInit() {
-    this.apiService.getBoards().subscribe(
-      (data) => {
-        this.boards = data;
-      },
-      (error) => {
-        console.error('Erro ao buscar colunas:', error);
-      }
-    );
+    this.HomeService.search$.subscribe(async () => {
+      this.boards = await firstValueFrom(
+        this.apiService.getBoards()
+      );
+    });
+    this.HomeService.search$.next();
   }
 }

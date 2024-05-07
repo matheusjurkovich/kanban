@@ -38,7 +38,6 @@ export class ColumnComponent {
   }
 
   async drop(event: CdkDragDrop<Task[]>) {
-    console.log(event.container.id);
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
