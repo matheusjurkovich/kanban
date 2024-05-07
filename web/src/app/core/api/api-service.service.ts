@@ -30,7 +30,7 @@ export interface Board {
   providedIn: 'root',
 })
 export class ApiServiceService {
-  private apiUrl = 'http://localhost:3333';
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
