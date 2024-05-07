@@ -30,7 +30,7 @@ export interface Board {
   providedIn: 'root',
 })
 export class ApiServiceService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://kanban-valinor.up.railway.app';
 
   constructor(private http: HttpClient) {}
 
