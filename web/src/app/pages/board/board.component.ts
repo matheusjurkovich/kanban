@@ -3,8 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
   ApiServiceService,
+  Board,
   Column,
 } from 'src/app/core/api/api-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ColumnModalComponent } from './components/column-modal/column-modal.component';
+import { BoardService } from './board.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-board',
@@ -12,32 +17,43 @@ import {
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-  columns: Column[] = [];
+  board?: Board;
   title: string = '';
   boardId: string = '';
 
   constructor(
     private apiService: ApiServiceService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private MatDialog: MatDialog,
+    private boardService: BoardService
   ) {}
 
   voltarPagina() {
     this.location.back();
   }
 
-  ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.boardId = params['id'];
+  openDialog() {
+    const dialogRef = this.MatDialog.open(ColumnModalComponent, {
+      data: { boardId: this.boardId },
+    });
 
-      this.apiService.getColumnsByBoardId(this.boardId).subscribe(
-        (data) => {
-          this.columns = data.columns;
-        },
-        (error) => {
-          console.error('Erro ao buscar colunas:', error);
-        }
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  ngOnInit() {
+    this.boardId = this.route.snapshot.params['id'];
+
+    if (!this.boardId) {
+      return;
+    }
+    this.boardService.search$.subscribe(async () => {
+      this.board = await firstValueFrom(
+        this.apiService.getBoardById(this.boardId)
       );
     });
+    this.boardService.search$.next();
   }
 }

@@ -1,26 +1,47 @@
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
-import { ApiServiceService, Task } from 'src/app/core/api/api-service.service';
+import { firstValueFrom } from 'rxjs';
+import {
+  ApiServiceService,
+  Column,
+  Task,
+} from 'src/app/core/api/api-service.service';
 
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss'],
 })
-export class ColumnComponent implements OnInit {
-  tasks: Task[] = [];
-  @Input({ required: true }) title: string = '';
-  @Input({ required: true }) columnId: string = '';
+export class ColumnComponent {
+  @Input({ required: true }) column!: Column;
 
-  constructor(private apiService: ApiServiceService) {}
+  constructor(private api: ApiServiceService) {}
 
-  ngOnInit() {
-    this.apiService.getTasksByColumnId(this.columnId).subscribe(
-      (data) => {
-        this.tasks = data.tasks;
-      },
-      (error) => {
-        console.error('Erro ao buscar colunas:', error);
-      }
-    );
+  async drop(event: CdkDragDrop<Task[]>) {
+    console.log(event.container.id);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+      await firstValueFrom(
+        this.api.updateTask({
+          columnId: event.container.id,
+          id: event.item.data.id,
+        })
+      );
+    }
   }
 }

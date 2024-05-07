@@ -13,6 +13,14 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CardBoardComponent } from './pages/home/components/card-board/card-board.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BoardModalComponent } from './pages/home/components/board-modal/board-modal.component';
+import { CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { ColumnModalComponent } from './pages/board/components/column-modal/column-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HomeComponent,
     CardBoardComponent,
+    BoardModalComponent,
+    ColumnModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +41,13 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
+    DragDropModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    CdkDropList,
   ],
   providers: [],
   bootstrap: [AppComponent],

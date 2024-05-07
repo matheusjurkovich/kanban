@@ -1,9 +1,6 @@
-@media screen and (max-width: 768px) {
-  main {
-    padding-inline: 1rem;
-  }
-  header,
-  footer {
-    padding-inline: 1rem;
-  }
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
 }

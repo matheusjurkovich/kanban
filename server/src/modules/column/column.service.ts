@@ -37,7 +37,7 @@ export class ColumnService {
 
   async createColumn(data: ColumnDTO) {
     if (!data.boardId) {
-      throw new Error('columnId is required');
+      throw new Error('boardId is required');
     }
 
     const column = await this.prisma.column.create({

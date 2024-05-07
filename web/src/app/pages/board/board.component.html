@@ -7,15 +7,21 @@
       <button class="btn-edit" type="button">
         <mat-icon>edit</mat-icon>Editar Quadro
       </button>
-      <button class="btn-add" type="button">
+
+      <button class="btn-add" type="button" (click)="openDialog()">
         <mat-icon>add_circle</mat-icon>Adicionar Coluna
       </button>
     </div>
   </div>
-  <div id="board" *ngIf="columns.length > 0; else emptyMessage">
-    <div *ngFor="let column of columns">
-      <app-column [title]="column.title" [columnId]="column.id"></app-column>
-    </div>
+  <div
+    id="board"
+    *ngIf="board?.columns?.length; else emptyMessage"
+    cdkDropListGroup
+  >
+    <app-column
+      [column]="column"
+      *ngFor="let column of board?.columns"
+    ></app-column>
   </div>
   <ng-template class="emptyMessage" #emptyMessage>
     <p>Nenhuma coluna cadastrada...</p>

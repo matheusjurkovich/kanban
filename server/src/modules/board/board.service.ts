@@ -15,22 +15,16 @@ export class BoardService {
   }
 
   async getBoardById(id: string) {
-    const boardExists = await this.prisma.board.findUnique({
-      where: {
-        id,
-      },
-    });
-
-    if (!boardExists) {
-      throw new Error('column not exixsts!');
-    }
-
-    return await this.prisma.board.findUnique({
+    return this.prisma.board.findUnique({
       where: {
         id,
       },
       include: {
-        columns: true,
+        columns: {
+          include: {
+            tasks: true,
+          },
+        },
       },
     });
   }

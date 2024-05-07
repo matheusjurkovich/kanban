@@ -52,4 +52,38 @@ export class ApiServiceService {
   getColumnsByBoardId(boardId: string): Observable<Board> {
     return this.http.get<Board>(this.apiUrl + '/board/' + boardId);
   }
+
+  getBoardById(boardId: string): Observable<Board> {
+    return this.http.get<Board>(this.apiUrl + '/board/' + boardId);
+  }
+
+  addBoard(boardData: { title: string }): Observable<Board> {
+    return this.http.post<Board>(this.apiUrl + '/board', boardData);
+  }
+  addColumn(columnData: {
+    title: string;
+    boardId: string;
+  }): Observable<Column> {
+    return this.http.post<Column>(this.apiUrl + '/column', columnData);
+  }
+
+  addTask(taskData: {
+    title: string;
+    description: string;
+    columnId: string;
+  }): Observable<Task> {
+    return this.http.post<Task>(this.apiUrl + '/task', taskData);
+  }
+
+  updateTask(taskData: {
+    id: string;
+    title?: string;
+    description?: string;
+    columnId?: string;
+  }): Observable<Task> {
+    return this.http.patch<Task>(
+      this.apiUrl + '/task/' + taskData.id,
+      taskData
+    );
+  }
 }

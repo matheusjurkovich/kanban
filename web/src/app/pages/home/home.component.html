@@ -1,8 +1,10 @@
 <main>
   <div id="add-board">
-    <button class="btn-add" type="button">
-      <mat-icon>add_circle</mat-icon>Adicionar Quadro
-    </button>
+    <mat-dialog-actions>
+      <button class="btn-add" type="button" (click)="openDialog()">
+        <mat-icon>add_circle</mat-icon>Adicionar Quadro
+      </button>
+    </mat-dialog-actions>
   </div>
   <div id="boards">
     <div *ngIf="boards.length > 0; else emptyMessage">

@@ -1,0 +1,16 @@
+<mat-dialog-content>
+  <header>
+    <h1>Adicionar quadro</h1>
+  </header>
+  <p>
+    <mat-form-field>
+      <input matInput placeholder="Nome do quadro" [(ngModel)]="boardName" />
+    </mat-form-field>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-flat-button color="primary" (click)="addBoard()">
+    Adicionar
+  </button>
+  <button mat-flat-button color="warn" matDialogClose>Cancelar</button>
+</mat-dialog-actions>
