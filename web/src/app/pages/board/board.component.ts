@@ -36,6 +36,7 @@ export class BoardComponent implements OnInit {
   openDialog() {
     const dialogRef = this.MatDialog.open(ColumnModalComponent, {
       data: { boardId: this.boardId },
+      width: '450px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

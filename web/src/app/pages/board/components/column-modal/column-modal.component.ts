@@ -27,7 +27,7 @@ export class ColumnModalComponent implements OnInit {
       .addColumn({ title: this.columnName, boardId: this.boardId })
       .subscribe(
         (data) => {
-          this.boardService.search$.next();
+          this.boardService.search$.next()
           this.MatDialogRef.close();
         },
         (error) => {

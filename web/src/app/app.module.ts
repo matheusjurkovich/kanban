@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { ColumnModalComponent } from './pages/board/components/column-modal/column-modal.component';
+import { TaskModalComponent } from './pages/board/components/column/task-modal/task-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ColumnModalComponent } from './pages/board/components/column-modal/colu
     CardBoardComponent,
     BoardModalComponent,
     ColumnModalComponent,
+    TaskModalComponent,
   ],
   imports: [
     BrowserModule,

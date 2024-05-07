@@ -2,11 +2,10 @@
   <header>
     <h1>Adicionar Coluna</h1>
   </header>
-  <p>
-    <mat-form-field>
-      <input matInput placeholder="Nome da coluna" [(ngModel)]="columnName" />
-    </mat-form-field>
-  </p>
+
+  <mat-form-field>
+    <input matInput placeholder="Nome da coluna" [(ngModel)]="columnName" />
+  </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions align="center">
   <button mat-flat-button color="primary" (click)="addColumn()">

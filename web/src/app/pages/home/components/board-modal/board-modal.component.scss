@@ -4,4 +4,8 @@ mat-dialog-content {
   align-items: center;
   justify-content: center; 
   gap: 1rem;
+  width: 100%;
+  mat-form-field {
+    width: 100%;
+  }
 }

@@ -18,7 +18,7 @@ export class HomeComponent {
 
   openDialog() {
     const dialogRef = this.MatDialog.open(BoardModalComponent, {
-
+      width: '450px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

@@ -1,0 +1,21 @@
+<mat-dialog-content>
+  <header>
+    <h1>Adicionar tarefa</h1>
+  </header>
+
+  <mat-form-field>
+    <input matInput placeholder="Nome da coluna" [(ngModel)]="taskName" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea
+      matInput
+      placeholder="Descricao da coluna"
+      [(ngModel)]="description"
+    ></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-flat-button color="primary" (click)="addTask()">Adicionar</button>
+  <button mat-flat-button color="warn" matDialogClose>Cancelar</button>
+</mat-dialog-actions>
