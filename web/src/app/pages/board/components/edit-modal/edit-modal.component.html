@@ -2,8 +2,11 @@
   <header>
     <h1>Editar dados</h1>
   </header>
+  <mat-divider></mat-divider>
+  <h2>Quadro</h2>
 
   <mat-form-field>
+    <label>Nome do Quadro</label>
     <input
       matInput
       placeholder="Nome do Quadro"
@@ -18,12 +21,11 @@
     </button>
   </mat-form-field>
 
-  <hr />
-
   <h2>Colunas</h2>
 
   <div class="columns" *ngFor="let column of columns">
     <mat-form-field>
+      <mat-label>Nome da coluna</mat-label>
       <input
         matInput
         placeholder="Nome da coluna"

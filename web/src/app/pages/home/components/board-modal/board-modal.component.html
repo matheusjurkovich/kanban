@@ -5,7 +5,9 @@
 
   <form #quadroForm="ngForm">
     <mat-form-field>
-      <input matInput placeholder="Nome do quadro" name="boardName" [(ngModel)]="boardName" required #boardNameInput="ngModel">
+      <mat-label>Nome do quadro</mat-label>
+      <input matInput placeholder="Ex. Meu quadro" name="boardName" [(ngModel)]="boardName" required #boardNameInput="ngModel">
+      <mat-icon matSuffix>post_add</mat-icon>
       <mat-error *ngIf="boardNameInput.errors?.['required']">
         O nome do quadro é obrigatório.
       </mat-error>

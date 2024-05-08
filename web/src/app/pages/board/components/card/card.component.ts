@@ -8,7 +8,7 @@ import { BoardService } from '../../board.service';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  @Input({ required: true }) tasks!: Task;
+  @Input({ required: true }) task!: Task;
 
   constructor(
     private apiService: ApiServiceService,

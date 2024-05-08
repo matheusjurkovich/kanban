@@ -5,6 +5,7 @@
 
   <form #colunaForm="ngForm">
     <mat-form-field>
+      <mat-label>Nome da coluna</mat-label>
       <input
         matInput
         placeholder="Nome da coluna"
@@ -13,6 +14,7 @@
         required
         #columnNameInput="ngModel"
       />
+      <mat-icon matSuffix>post_add</mat-icon>
       <mat-error *ngIf="columnNameInput.errors?.['required']">
         O nome da coluna é obrigatório.
       </mat-error>

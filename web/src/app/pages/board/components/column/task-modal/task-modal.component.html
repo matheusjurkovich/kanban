@@ -5,6 +5,7 @@
 
   <form #tarefaForm="ngForm">
     <mat-form-field>
+      <mat-label>Nome da tarefa</mat-label>
       <input
         matInput
         placeholder="Nome da tarefa"
@@ -13,12 +14,14 @@
         required
         #taskNameInput="ngModel"
       />
+      <mat-icon matSuffix>post_add</mat-icon>
       <mat-error *ngIf="taskNameInput.errors?.['required']">
         O nome da tarefa é obrigatório.
       </mat-error>
     </mat-form-field>
 
     <mat-form-field>
+      <mat-label>Descrição</mat-label>
       <textarea
         matInput
         placeholder="Descrição da tarefa"
@@ -27,6 +30,7 @@
         required
         #descriptionInput="ngModel"
       ></textarea>
+      <mat-icon matSuffix>description</mat-icon>
       <mat-error *ngIf="descriptionInput.errors?.['required']">
         A descrição da tarefa é obrigatória.
       </mat-error>

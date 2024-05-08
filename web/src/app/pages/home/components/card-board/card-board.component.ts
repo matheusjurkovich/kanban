@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Board } from 'src/app/core/api/api-service.service';
 
 @Component({
   selector: 'app-card-board',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-board.component.scss'],
 })
 export class CardBoardComponent {
-  @Input({ required: true }) title: string = '';
+  @Input({ required: true }) board!: Board;
 }

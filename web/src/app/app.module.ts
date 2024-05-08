@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';
 import { ColumnModalComponent } from './pages/board/components/column-modal/column-modal.component';
 import { TaskModalComponent } from './pages/board/components/column/task-modal/task-modal.component';
@@ -52,6 +53,7 @@ import { EditModalComponent } from './pages/board/components/edit-modal/edit-mod
     MatButtonModule,
     FormsModule,
     CdkDropList,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

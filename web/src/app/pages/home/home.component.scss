@@ -13,7 +13,11 @@ main {
   #add-board {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
+    h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
     .btn-add {
       display: flex;
       align-items: center;

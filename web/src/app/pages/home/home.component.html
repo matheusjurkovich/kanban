@@ -1,17 +1,16 @@
 <main>
   <div id="add-board">
-    <mat-dialog-actions>
-      <button class="btn-add" type="button" (click)="openDialog()">
-        <mat-icon>add_circle</mat-icon>Adicionar Quadro
-      </button>
-    </mat-dialog-actions>
+    <h1>Meus Quadros</h1>
+    <button class="btn-add" type="button" (click)="openDialog()">
+      <mat-icon>add_circle</mat-icon>Adicionar Quadro
+    </button>
   </div>
-  <div >
+  <div>
     <div id="boards" *ngIf="boards.length > 0; else emptyMessage">
       <div *ngFor="let board of boards">
         <app-card-board
           [routerLink]="['/board', board.id]"
-          [title]="board.title"
+          [board]="board"
         ></app-card-board>
       </div>
     </div>
