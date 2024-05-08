@@ -63,3 +63,5 @@ npm run start:dev
 ```
 
 A API estará disponível em `http://localhost:3000`.
+
+- [Documentacao da API](server/README.md)
