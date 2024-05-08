@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ColumnService } from './column.service';
 import { ColumnController } from './column.controller';
-import { PrismaService } from 'src/database/prisma.service';
+import { PrismaClient } from '@prisma/client';
 
 @Module({
   controllers: [ColumnController],
-  providers: [ColumnService, PrismaService],
+  providers: [ColumnService, PrismaClient],
 })
 export class ColumnModule {}

@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { TaskDTO } from './task.dto';
-import { PrismaService } from 'src/database/prisma.service';
+import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class TaskService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaClient) {}
 
   async findAllTasks() {
     return await this.prisma.task.findMany();
@@ -18,7 +18,7 @@ export class TaskService {
     });
 
     if (!taskExists) {
-      throw new Error('Task not exixsts!');
+      throw new NotFoundException('Task not found');
     }
 
     return taskExists;
@@ -52,7 +52,7 @@ export class TaskService {
     });
 
     if (!taskExists) {
-      throw new Error('Task not exixsts!');
+      throw new NotFoundException('Task not found');
     }
 
     return await this.prisma.task.update({
@@ -71,7 +71,7 @@ export class TaskService {
     });
 
     if (!taskExists) {
-      throw new Error('Task not exixsts!');
+      throw new NotFoundException('Task not found');
     }
 
     return await this.prisma.task.delete({

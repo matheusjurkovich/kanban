@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/database/prisma.service';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { PrismaClient } from '@prisma/client';
 import { ColumnDTO } from './column.dto';
 
 @Injectable()
 export class ColumnService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaClient) {}
 
   async findAllColumns() {
     return await this.prisma.column.findMany({
@@ -22,7 +22,7 @@ export class ColumnService {
     });
 
     if (!columnExists) {
-      throw new Error('column not exixsts!');
+      throw new NotFoundException('Column not found');
     }
 
     return await this.prisma.column.findUnique({
@@ -36,9 +36,9 @@ export class ColumnService {
   }
 
   async createColumn(data: ColumnDTO) {
-    if (!data.boardId) {
-      throw new Error('boardId is required');
-    }
+    // if (!data.boardId) {
+    //   throw new Error('boardId is required');
+    // }
 
     const column = await this.prisma.column.create({
       data: {
@@ -62,7 +62,7 @@ export class ColumnService {
     });
 
     if (!columnExists) {
-      throw new Error('column not exixsts!');
+      throw new NotFoundException('Column not found');
     }
     return await this.prisma.column.update({
       where: {
@@ -80,7 +80,7 @@ export class ColumnService {
     });
 
     if (!columnExists) {
-      throw new Error('column not exixsts!');
+      throw new NotFoundException('Column not found');
     }
 
     return await this.prisma.column.delete({
