@@ -1,11 +1,11 @@
 <div class="card">
   <div class="card-content">
-    <p class="card-title">{{ title }}</p>
+    <p class="card-title">{{ tasks.title }}</p>
     <p class="card-description">
-      {{ description }}
+      {{ tasks.description }}
     </p>
   </div>
-  <button mat-icon-button color="warn" matSuffix>
+  <button mat-icon-button color="warn" matSuffix (click)="deleteTask(tasks.id)">
     <mat-icon>delete</mat-icon>
   </button>
 </div>

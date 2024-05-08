@@ -18,8 +18,7 @@
   >
     <app-card
       *ngFor="let task of column.tasks"
-      [title]="task.title"
-      [description]="task.description"
+      [tasks]="task"
       cdkDrag
       [cdkDragData]="task"
     ></app-card>

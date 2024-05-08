@@ -107,4 +107,7 @@ export class ApiServiceService {
   deleteColumn(columnId: string): Observable<Column> {
     return this.http.delete<Column>(this.apiUrl + '/column/' + columnId);
   }
+  deleteTask(taskId: string): Observable<Task> {
+    return this.http.delete<Task>(this.apiUrl + '/task/' + taskId);
+  }
 }

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { ApiServiceService, Task } from 'src/app/core/api/api-service.service';
+import { BoardService } from '../../board.service';
 
 @Component({
   selector: 'app-card',
@@ -6,6 +8,16 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  @Input() title: string = '';
-  @Input() description: string = '';
+  @Input({ required: true }) tasks!: Task;
+
+  constructor(
+    private apiService: ApiServiceService,
+    private boardService: BoardService
+  ) {}
+
+  deleteTask(taskId: string) {
+    this.apiService.deleteTask(taskId).subscribe(() => {
+      this.boardService.search$.next();
+    });
+  }
 }
