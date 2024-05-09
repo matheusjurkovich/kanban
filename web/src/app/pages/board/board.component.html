@@ -1,8 +1,11 @@
 <main>
   <div id="panel">
-    <button class="btn-back" type="button" (click)="voltarPagina()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
+    <div class="container">
+      <button class="btn-back" type="button" (click)="voltarPagina()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h2>{{ board?.title }}</h2>
+    </div>
     <div class="btn-wrapper">
       <button class="btn-edit" type="button" (click)="openEditDialog()">
         <mat-icon>edit</mat-icon>Editar Quadro
