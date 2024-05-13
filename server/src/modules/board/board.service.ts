@@ -8,8 +8,15 @@ export class BoardService {
 
   async findAllBoards() {
     return await this.prisma.board.findMany({
+      orderBy: {
+        updatedAt: 'desc',
+      },
       include: {
-        columns: true,
+        columns: {
+          orderBy: {
+            createdAt: 'asc',
+          },
+        },
       },
     });
   }

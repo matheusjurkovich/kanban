@@ -1,0 +1,43 @@
+<mat-dialog-content>
+  <header>
+    <h1>Editar dados</h1>
+    <button mat-icon-button matDialogClose>
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+  <mat-divider></mat-divider>
+  <h2>Tarefa</h2>
+
+  <mat-form-field>
+    <label>Nome da tarefa</label>
+    <input
+      matInput
+      placeholder="Nome do Quadro"
+      [(ngModel)]="taskName"
+      value=""
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <label>Descrição da tarefa</label>
+    <input
+      matInput
+      placeholder="Nome do Quadro"
+      [(ngModel)]="taskDescription"
+      value=""
+    />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button
+    mat-flat-button
+    color="warn"
+    matDialogClose
+    (click)="deleteTask(taskId)"
+  >
+    Deletar
+  </button>
+  <button mat-flat-button color="primary" matDialogClose (click)="updateTask()">
+    Salvar
+  </button>
+</mat-dialog-actions>

@@ -49,14 +49,21 @@ export class EditModalComponent implements OnInit {
 
   async updateColumn(column: Column) {
     try {
-      const updatedColumn = await firstValueFrom(
-        this.apiService.updateColumn({ id: column.id, title: column.title })
+      await firstValueFrom(
+        this.apiService.updateColumn({
+          id: column.id,
+          title: column.title,
+        })
       );
-      const columnIndex = this.columns.findIndex((c) => c.id === column.id);
-      this.columns[columnIndex] = updatedColumn;
+      this.boardService.search$.next();
     } catch (error) {
       console.error('Erro ao atualizar a coluna:', error);
     }
+  }
+
+  updateAll() {
+    this.updateBoard();
+    this.columns.forEach((column) => this.updateColumn(column));
   }
 
   deleteColumn(columnId: string) {

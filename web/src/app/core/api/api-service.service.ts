@@ -53,6 +53,9 @@ export class ApiServiceService {
     return this.http.get<Board>(this.apiUrl + '/board/' + boardId);
   }
 
+  getTaskById(taskId: string): Observable<Task> {
+    return this.http.get<Task>(this.apiUrl + '/task/' + taskId);
+  }
   getBoardById(boardId: string): Observable<Board> {
     return this.http.get<Board>(this.apiUrl + '/board/' + boardId);
   }
@@ -110,4 +113,7 @@ export class ApiServiceService {
   deleteTask(taskId: string): Observable<Task> {
     return this.http.delete<Task>(this.apiUrl + '/task/' + taskId);
   }
+
+  
+
 }

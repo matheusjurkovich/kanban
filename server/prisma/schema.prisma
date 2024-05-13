@@ -30,6 +30,7 @@ model Column {
   id        String   @id @default(uuid())
   title     String
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   tasks     Task[]
   boardId   String?
 
@@ -42,5 +43,6 @@ model Board {
   id        String   @id @default(uuid())
   title     String
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   columns   Column[]
 }

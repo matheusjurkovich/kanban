@@ -1,6 +1,9 @@
 <mat-dialog-content>
   <header>
     <h1>Editar dados</h1>
+    <button mat-icon-button matDialogClose>
+      <mat-icon>close</mat-icon>
+    </button>
   </header>
   <mat-divider></mat-divider>
   <h2>Quadro</h2>
@@ -13,9 +16,7 @@
       [(ngModel)]="boardName"
       value=""
     />
-    <button mat-icon-button matSuffix color="primary" (click)="updateBoard()">
-      <mat-icon>save</mat-icon>
-    </button>
+
     <button mat-icon-button color="warn" matSuffix (click)="deleteBoard()">
       <mat-icon>delete</mat-icon>
     </button>
@@ -34,14 +35,6 @@
       />
       <button
         mat-icon-button
-        color="primary"
-        matSuffix
-        (click)="updateColumn(column)"
-      >
-        <mat-icon>save</mat-icon>
-      </button>
-      <button
-        mat-icon-button
         color="warn"
         matSuffix
         (click)="deleteColumn(column.id)"
@@ -53,5 +46,5 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
-  <button mat-flat-button color="warn" matDialogClose>Sair</button>
+  <button mat-flat-button color="primary" matDialogClose (click)="updateAll()">Salvar alterações</button>
 </mat-dialog-actions>

@@ -8,8 +8,15 @@ export class ColumnService {
 
   async findAllColumns() {
     return await this.prisma.column.findMany({
+      orderBy: {
+        createdAt: 'asc',
+      },
       include: {
-        tasks: true,
+        tasks: {
+          orderBy: {
+            createdAt: 'desc',
+          },
+        },
       },
     });
   }
@@ -36,10 +43,6 @@ export class ColumnService {
   }
 
   async createColumn(data: ColumnDTO) {
-    // if (!data.boardId) {
-    //   throw new Error('boardId is required');
-    // }
-
     const column = await this.prisma.column.create({
       data: {
         title: data.title,
