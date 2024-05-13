@@ -37,6 +37,9 @@ export class BoardService {
       },
       include: {
         columns: {
+          orderBy: {
+            createdAt: 'asc',
+          },
           include: {
             tasks: true,
           },

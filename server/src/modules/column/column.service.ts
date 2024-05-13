@@ -37,7 +37,11 @@ export class ColumnService {
         id,
       },
       include: {
-        tasks: true,
+        tasks: {
+          orderBy: {
+            createdAt: 'desc',
+          },
+        },
       },
     });
   }
