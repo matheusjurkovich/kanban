@@ -22,7 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';
 import { ColumnModalComponent } from './pages/board/components/column-modal/column-modal.component';
-import { TaskModalComponent } from './pages/board/components/column/task-modal/task-modal.component';
+import { CreateTaskModalComponent } from './pages/board/components/column/create-task-modal/create-task-modal.component';
 import { EditModalComponent } from './pages/board/components/edit-modal/edit-modal.component';
 
 @NgModule({
@@ -37,7 +37,7 @@ import { EditModalComponent } from './pages/board/components/edit-modal/edit-mod
     CardBoardComponent,
     BoardModalComponent,
     ColumnModalComponent,
-    TaskModalComponent,
+    CreateTaskModalComponent,
     EditModalComponent,
   ],
   imports: [

@@ -4,7 +4,7 @@
 
 Esta API é utilizada para gerenciar um sistema de Kanban, permitindo operações CRUD em tarefas, colunas e quadros.
 
-#### Estrutura de uma Tarefa
+### Estrutura de uma Tarefa
 
 ```json
 {
@@ -39,7 +39,7 @@ Esta API é utilizada para gerenciar um sistema de Kanban, permitindo operaçõe
 }
 ```
 
-#### Operações
+Operações
 
 - `GET /column` - Retorna todas as colunas.
 - `GET /column/:id` - Retorna uma coluna pelo ID.
@@ -60,7 +60,7 @@ Esta API é utilizada para gerenciar um sistema de Kanban, permitindo operaçõe
 }
 ```
 
-#### Operações
+Operações
 
 - `GET /board` - Retorna todos os quadros.
 - `GET /board/:id` - Retorna um quadro pelo ID.

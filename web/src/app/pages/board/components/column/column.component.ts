@@ -10,7 +10,7 @@ import {
   Column,
   Task,
 } from 'src/app/core/api/api-service.service';
-import { TaskModalComponent } from './task-modal/task-modal.component';
+import { CreateTaskModalComponent } from './create-task-modal/create-task-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -25,7 +25,7 @@ export class ColumnComponent {
   constructor(private api: ApiServiceService, private MatDialog: MatDialog) {}
 
   openDialog() {
-    const dialogRef = this.MatDialog.open(TaskModalComponent, {
+    const dialogRef = this.MatDialog.open(CreateTaskModalComponent, {
       width: '450px',
       data: {
         columnId: this.column.id,

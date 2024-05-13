@@ -4,11 +4,11 @@ import { ApiServiceService } from 'src/app/core/api/api-service.service';
 import { BoardService } from '../../../board.service';
 
 @Component({
-  selector: 'app-task-modal',
-  templateUrl: './task-modal.component.html',
-  styleUrls: ['./task-modal.component.scss'],
+  selector: 'app-create-task-modal',
+  templateUrl: './create-task-modal.component.html',
+  styleUrls: ['./create-task-modal.component.scss'],
 })
-export class TaskModalComponent {
+export class CreateTaskModalComponent {
   taskName: string = '';
   description: string = '';
   columnId: string = '';
@@ -17,7 +17,7 @@ export class TaskModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: { columnId: string },
     private apiService: ApiServiceService,
     private boardService: BoardService,
-    private dialogRef: MatDialogRef<TaskModalComponent>
+    private dialogRef: MatDialogRef<CreateTaskModalComponent>
   ) {}
 
   addTask() {
