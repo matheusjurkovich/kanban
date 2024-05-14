@@ -27,13 +27,9 @@
         placeholder="Descrição da tarefa"
         name="description"
         [(ngModel)]="description"
-        required
         #descriptionInput="ngModel"
       ></textarea>
       <mat-icon matSuffix>description</mat-icon>
-      <mat-error *ngIf="descriptionInput.errors?.['required']">
-        A descrição da tarefa é obrigatória.
-      </mat-error>
     </mat-form-field>
   </form>
 </mat-dialog-content>
