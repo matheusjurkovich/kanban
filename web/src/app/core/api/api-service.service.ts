@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-export interface Column {
-  id: string;
-  title: string;
-  createdAt: string;
-  boardId: string;
-  tasks: Task[];
-}
+import { environment } from '../environments/environment';
 
 export interface Task {
   id: string;
@@ -19,10 +12,20 @@ export interface Task {
   columnId: string;
 }
 
+export interface Column {
+  id: string;
+  title: string;
+  updatedAt: string;
+  createdAt: string;
+  boardId: string;
+  tasks: Task[];
+}
+
 export interface Board {
   id: string;
   title: string;
   createdAt: string;
+  updatedAt: string;
   columns: Column[];
 }
 
@@ -30,7 +33,7 @@ export interface Board {
   providedIn: 'root',
 })
 export class ApiServiceService {
-  private apiUrl = 'https://kanban-valinor.up.railway.app';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -113,7 +116,4 @@ export class ApiServiceService {
   deleteTask(taskId: string): Observable<Task> {
     return this.http.delete<Task>(this.apiUrl + '/task/' + taskId);
   }
-
-  
-
 }
