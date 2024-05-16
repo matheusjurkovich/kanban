@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../environments/environment';
+import { prodEnvironment } from '../environments/environment.prod'; 
 
 export interface Task {
   id: string;
@@ -33,7 +33,7 @@ export interface Board {
   providedIn: 'root',
 })
 export class ApiServiceService {
-  private apiUrl = environment.apiUrl;
+  private apiUrl = prodEnvironment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
