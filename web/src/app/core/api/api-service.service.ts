@@ -30,7 +30,7 @@ export interface Board {
   providedIn: 'root',
 })
 export class ApiServiceService {
-  private apiUrl = 'https://kanban-valinor.up.railway.app';
+  private apiUrl = 'https://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
@@ -113,7 +113,4 @@ export class ApiServiceService {
   deleteTask(taskId: string): Observable<Task> {
     return this.http.delete<Task>(this.apiUrl + '/task/' + taskId);
   }
-
-  
-
 }
