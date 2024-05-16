@@ -2,14 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface Column {
-  id: string;
-  title: string;
-  createdAt: string;
-  boardId: string;
-  tasks: Task[];
-}
-
 export interface Task {
   id: string;
   title: string;
@@ -19,10 +11,20 @@ export interface Task {
   columnId: string;
 }
 
+export interface Column {
+  id: string;
+  title: string;
+  updatedAt: string;
+  createdAt: string;
+  boardId: string;
+  tasks: Task[];
+}
+
 export interface Board {
   id: string;
   title: string;
   createdAt: string;
+  updatedAt: string;
   columns: Column[];
 }
 
@@ -30,7 +32,7 @@ export interface Board {
   providedIn: 'root',
 })
 export class ApiServiceService {
-  private apiUrl = 'https://localhost:3000';
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
