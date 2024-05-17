@@ -50,7 +50,14 @@ export class BoardService {
 
   async createBoard(data: BoardDTO) {
     const board = await this.prisma.board.create({
-      data,
+      data: {
+        title: data.title,
+        User: {
+          connect: {
+            id: data.userId,
+          },
+        },
+      },
     });
     return board;
   }
