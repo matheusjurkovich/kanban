@@ -14,9 +14,12 @@ import { UserDTO } from './user.dto';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get(':id')
-  async getUserById(@Param('id') id: string): Promise<UserDTO> {
-    return await this.userService.getUserById(id);
+  @Get()
+  async getUserByEmail(
+    @Body('email') email: string,
+    @Body('password') password: string,
+  ): Promise<UserDTO> {
+    return await this.userService.getUserByEmail(email, password);
   }
 
   @Post()
