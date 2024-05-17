@@ -32,9 +32,9 @@ model Column {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   tasks     Task[]
-  boardId   String?
+  boardId   String
 
-  Board Board? @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  Board Board @relation(fields: [boardId], references: [id], onDelete: Cascade)
 
   @@map("columns")
 }
@@ -45,4 +45,18 @@ model Board {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   columns   Column[]
+  userId    String
+
+  User User @relation(fields: [userId], references: [id])
+
+  @@map("boards")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  boards    Board[]
 }
