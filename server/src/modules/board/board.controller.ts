@@ -8,7 +8,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { BoardService } from './board.service';
-import { ColumnDTO } from '../column/column.dto';
+import { BoardDTO } from './board.dto';
 
 @Controller('board')
 export class BoardController {
@@ -25,14 +25,14 @@ export class BoardController {
   }
 
   @Post()
-  async createBoard(@Body() data: ColumnDTO) {
+  async createBoard(@Body() data: BoardDTO) {
     const column = await this.boardService.createBoard(data);
 
     return column;
   }
 
   @Patch(':id')
-  async updateBoard(@Param('id') id: string, @Body() data: ColumnDTO) {
+  async updateBoard(@Param('id') id: string, @Body() data: BoardDTO) {
     const column = await this.boardService.updateBoard(id, data);
 
     return column;
