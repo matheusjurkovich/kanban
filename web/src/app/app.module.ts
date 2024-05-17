@@ -26,6 +26,7 @@ import { CreateTaskModalComponent } from './pages/board/components/column/create
 import { EditModalComponent } from './pages/board/components/edit-modal/edit-modal.component';
 import { EditTaskModalComponent } from './pages/board/components/card/edit-task-modal/edit-task-modal.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { LoginComponent } from './pages/login/login.component';
     EditModalComponent,
     EditTaskModalComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,18 @@
 <main>
-  <div class="login-card">
-    <h1>Login</h1>
+  <div class="register-card">
+    <h1>Registro</h1>
     <form #quadroForm="ngForm">
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Ex. Fulano da silva"
+          name="name"
+          required
+        />
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
       <mat-form-field>
         <mat-label>E-mail</mat-label>
         <input
@@ -22,10 +33,11 @@
         mat-raised-button
         color="primary"
         [disabled]="!quadroForm.valid"
+        type="submit"
       >
-        Entrar
+        Registrar
       </button>
     </form>
-    <p>Não possuo conta. <a href="/register">Registrar</a></p>
+    <p>Já possuo conta. <a href="/login">Entrar</a></p>
   </div>
 </main>
