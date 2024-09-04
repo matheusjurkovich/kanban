@@ -1,0 +1,43 @@
+<main>
+  <div class="register-card">
+    <h1>Registro</h1>
+    <form #quadroForm="ngForm">
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Ex. Fulano da silva"
+          name="name"
+          required
+        />
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input
+          type="email"
+          matInput
+          placeholder="Ex. seu-email@email.com"
+          name="email"
+          required
+        />
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" name="password" required />
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!quadroForm.valid"
+        type="submit"
+      >
+        Registrar
+      </button>
+    </form>
+    <p>Já possuo conta. <a href="/login">Entrar</a></p>
+  </div>
+</main>
