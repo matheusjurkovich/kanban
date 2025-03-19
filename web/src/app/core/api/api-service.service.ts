@@ -114,6 +114,6 @@ export class ApiServiceService {
     return this.http.delete<Column>(this.apiUrl + '/column/' + columnId);
   }
   deleteTask(taskId: string): Observable<Task> {
-    return this.http.delete<Task>(this.apiUrl + '/task/' + taskId);
+    return this.http.delete<Task>(this.apiUrl + '/task/' + taskId); //Testeteteteeteetetet
   }
 }
